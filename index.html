@@ -8,22 +8,40 @@
 
 	<link rel="stylesheet" href="assets/styles/css/main.css">
 	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
 
 	<script src="assets/libs/angular.js"></script>
+	<script src="assets/libs/angular-route.js"></script>
 	<script src="assets/libs/select.js"></script>
 	<script src="assets/libs/ui-bootstrap-1.3.2.min.js"></script>
 
 	<script src="app/app.module.js"></script>
 	<script src="app/app.routes.js"></script>
 
-	<script src="app/components/weather-forecasts/weatherForecastsController.js"></script>
-	<script src="app/components/weather-forecasts/weatherForecastsService.js"></script>
+	<script src="app/controllers/forecastsController.js"></script>
+	<script src="app/services/forecastsService.js"></script>
 
 </head>
 <body ng-app="App">
 <div class="container">
 	<header>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="logo">
+					<h1><img src="assets/img/sun.png" alt="">Weather</h1>
+				</div>
+			</div>
 
+			<div class="col-md-6">
+				<nav>
+					<ul class="pull-right">
+						<li>
+							<a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</header>
 
 	<div class="row">

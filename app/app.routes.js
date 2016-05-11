@@ -1,10 +1,10 @@
 // configure our routes
-app.config(function ($routeProvider) {
+App.config(function ($routeProvider) {
 	$routeProvider
 
 		.when('/', {
-			templateUrl: 'components/_weatherForecast.html',
-			controller: 'weatherForecastController.html'
+			templateUrl: 'app/views/forecasts.html',
+			controller: 'forecastsController'
 		})
 
 		.otherwise('/');

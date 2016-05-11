@@ -1,8 +1,51 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
 @import "bootstrap.min";
 @import "mixins";
 @import "select";
 @import "select2";
 
-$color-primary: #2C333E;
+$color-primary: yellow;
 $color-secondary: #D5473E;
+$green1: #396B76;
+$green2: #99A18A;
+$line: rgba(255, 255, 255, .1);
+
+body {
+	min-height: 100vh;
+	@include gradient-vertical($green1, $green2);
+}
+
+header {
+	border-bottom: 1px solid $line;
+
+	.logo {
+		h1 {
+			color: #fff;
+			font-size: 1.8em;
+			font-weight: 300;
+
+			img {
+				width: 1.3em;
+				margin-top: -3px;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	nav {
+		ul {
+			list-style-type: none;
+			margin: 25px 0 0 0;
+
+			li {
+				a {
+					color: #fff;
+
+					&:hover {
+						color: yellow;
+					}
+				}
+			}
+		}
+	}
+}
