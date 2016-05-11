@@ -3,8 +3,8 @@ app.config(function ($routeProvider) {
 	$routeProvider
 
 		.when('/', {
-			templateUrl: '',
-			controller: ''
+			templateUrl: 'components/_weatherForecast.html',
+			controller: 'weatherForecastController.html'
 		})
 
 		.otherwise('/');
