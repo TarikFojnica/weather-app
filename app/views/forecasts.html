@@ -1,38 +1,65 @@
 <div class="row">
-	<div class="col-lg-6 col-lg-offset-3">
-		<div class="form-container">
-			<form action="">
-				<div class="form-group">
-					<div class="col-lg-9">
-						<input type="text" class="form-control" placeholder="Change the place">
-					</div>
-
-					<div class="col-lg-3">
-						<button class="btn" type="submit">Submit</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-
-<div class="row">
 	<div class="col-lg-12">
-		<div class="place-info">
-			<h2><span>Sarajevo</span> Weather</h2>
+		<div class="current-place">
+			<h2>Sarajevo, 14. 02. 2015</h2>
 		</div>
 	</div>
 </div>
 
-<ul>
-	<li class="icon-sunrise"></li>
-	<p>Sunrise</p>
-</ul>
 
 <div class="row">
 	<div class="col-lg-6 col-lg-offset-3">
 		<div class="current-weather">
+			<div class="icon-container">
+				<img ng-src="assets/img/{{forecasts.currently.icon}}.png" alt="">
+			</div>
 
+			<div class="description">
+				<p>
+					{{forecasts.currently.summary}}
+				</p>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div class="detailed-weather">
+
+	<div class="navigation">
+		<div class="btn-group">
+			<label class="btn btn-success" ng-model="switch" uib-btn-radio="'today'" uncheckable>Today</label>
+			<label class="btn btn-success" ng-model="switch" uib-btn-radio="'60days'" uncheckable>Last 60 Days</label>
+		</div>
+	</div>
+
+	<div class="all-day-weather" ng-show="switch == 'today'">
+		<div class="row">
+			<div class="col-md-2" ng-repeat="forecast in forecasts.hourly">
+				<div class="element">
+					<div class="time">
+						<p>
+							{{convertUnix(forecast.time)}}:00
+						</p>
+					</div>
+
+					<div class="icon-container">
+						<img ng-src="assets/img/{{forecast.icon}}.png" alt="">
+					</div>
+
+					<div class="summary">
+						<p>
+							{{forecast.summary}}
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="60-days-weather">
+		goes here
+	</div>
+</div>
+
+

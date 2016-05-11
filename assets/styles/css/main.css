@@ -8018,14 +8018,6 @@ disabled look for disabled choices in the results dropdown
     background-position: 100% -21px !important;
   }
 }
-
-@font-face {
-  font-family: "iconvault";
-  src: url("weather-font/iconvault_forecastfont.eot");
-  src: url("weather-font/iconvault_forecastfont.eot?#iefix") format("embedded-opentype"), url("weather-font/iconvault_forecastfont.woff") format("woff"), url("weather-font/iconvault_forecastfont.ttf") format("truetype"), url("weather-font/iconvault_forecastfont.svg#iconvault") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 body {
   min-height: 100vh;
   background-image: -webkit-linear-gradient(top, #396B76 0%, #99A18A 100%);
@@ -8033,6 +8025,10 @@ body {
   background-image: linear-gradient(to bottom, #396B76 0%, #99A18A 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF396B76', endColorstr='#FF99A18A', GradientType=0);
+}
+
+p {
+  margin-bottom: 0;
 }
 
 header {
@@ -8071,10 +8067,6 @@ header nav ul li a:hover {
   /* stops bg color from leaking outside the border: */
 }
 
-.form-container {
-  margin: 30px 0;
-}
-
 .form-container .form-group input {
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -8082,7 +8074,6 @@ header nav ul li a:hover {
   /* stops bg color from leaking outside the border: */
   height: auto;
 }
-
 .form-container .form-group button.btn {
   display: block;
   width: 100%;
@@ -8109,6 +8100,85 @@ header nav ul li a:hover {
 
 .place-info h2 span {
   font-weight: 400;
+}
+
+.current-place {
+  text-align: center;
+}
+
+.current-place h2 {
+  color: #fff;
+  font-size: 1.7em;
+}
+
+.current-weather {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.current-weather img {
+  max-width: 100%;
+  width: 150px;
+}
+
+.current-weather .description p {
+  font-size: 1.5em;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.detailed-weather {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detailed-weather .navigation {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.detailed-weather .navigation .btn-group .btn {
+  background: none;
+  border: 1px solid #fff;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  padding: 8px 20px;
+  font-weight: 500;
+}
+
+.detailed-weather .navigation .btn-group .active {
+  background-color: #fff;
+  color: #396B76;
+}
+
+.all-day-weather .element {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  text-align: center;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.all-day-weather .element .time {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.all-day-weather .element .time p {
+  padding: 3px;
+}
+
+.all-day-weather .element .icon-container {
+  padding: 20px;
+}
+
+.all-day-weather .element .icon-container img {
+  width: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */
