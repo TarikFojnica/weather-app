@@ -122,6 +122,14 @@ header {
 			font-size: 1.5em;
 			margin-top: 15px;
 			color: #fff;
+
+			span {
+				background-color: rgba(255, 255, 255, .1);
+				@include border-radius(2px);
+				padding: 3px 7px;
+				font-size: .9em;
+				margin-left: 7px;;
+			}
 		}
 	}
 }
@@ -160,9 +168,11 @@ header {
 		@include border-radius(2px);
 		color: #fff;
 		margin-bottom: 20px;
+		min-height: 180px;
 
 		.time {
-			background-color: rgba(255, 255, 255, .1);
+
+			border-bottom: 1px solid rgba(255, 255, 255, .2);
 			p {
 				padding: 3px;
 			}
@@ -172,6 +182,17 @@ header {
 			padding: 20px;
 			img {
 				width: 50px;
+			}
+		}
+
+		.summary {
+			p {
+				span {
+					font-size: .85em;
+					background-color: rgba(255, 255, 255, .1);
+					@include border-radius(2px);
+					padding: 2px 7px;
+				}
 			}
 		}
 	}

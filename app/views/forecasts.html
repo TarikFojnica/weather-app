@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="current-place">
-			<h2>Sarajevo, 14. 02. 2015</h2>
+			<h2>{{location.city}}, 14. 02. 2015</h2>
 		</div>
 	</div>
 </div>
@@ -17,6 +17,10 @@
 			<div class="description">
 				<p>
 					{{forecasts.currently.summary}}
+					<span ng-show="forecasts.currently.temperature != NaN">
+					<sup>o</sup>C
+					{{convertFahrenheit(forecasts.currently.temperature)}}
+				</span>
 				</p>
 			</div>
 		</div>
@@ -27,18 +31,19 @@
 
 	<div class="navigation">
 		<div class="btn-group">
-			<label class="btn btn-success" ng-model="switch" uib-btn-radio="'today'" uncheckable>Today</label>
-			<label class="btn btn-success" ng-model="switch" uib-btn-radio="'60days'" uncheckable>Last 60 Days</label>
+			<label class="btn btn-success" ng-model="switch" uib-btn-radio="'today'">Today</label>
+			<label ng-click="getLast30DaysForecasts('43.8563', '18.4131')" class="btn btn-success" ng-model="switch"
+						 uib-btn-radio="'30days'">Last 30 Days</label>
 		</div>
 	</div>
 
 	<div class="all-day-weather" ng-show="switch == 'today'">
 		<div class="row">
-			<div class="col-md-2" ng-repeat="forecast in forecasts.hourly">
+			<div class="col-md-2" ng-repeat="forecast in forecasts.hourly | limitTo: 12">
 				<div class="element">
 					<div class="time">
 						<p>
-							{{convertUnix(forecast.time)}}:00
+							<i class="fa fa-clock-o" aria-hidden="true"></i> {{convertUnixToDate(forecast.time).onlyHours}}:00
 						</p>
 					</div>
 
@@ -48,7 +53,7 @@
 
 					<div class="summary">
 						<p>
-							{{forecast.summary}}
+							{{forecast.summary}} <span><sup>o</sup>C	{{convertFahrenheit(forecast.temperature)}}</span>
 						</p>
 					</div>
 				</div>
@@ -57,8 +62,10 @@
 		</div>
 	</div>
 
-	<div class="60-days-weather">
-		goes here
+	<div class="60-days-weather" ng-show="switch  == '30days'">
+		<ul ng-repeat="forecast in forecasts.totalMonth">
+			<li>{{forecast.time}}</li>
+		</ul>
 	</div>
 </div>
 

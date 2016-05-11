@@ -3,8 +3,7 @@ App.config(function ($routeProvider) {
 	$routeProvider
 
 		.when('/', {
-			templateUrl: 'app/views/forecasts.html',
-			controller: 'forecastsController'
+			templateUrl: 'app/views/forecasts.html'
 		})
 
 		.otherwise('/');
