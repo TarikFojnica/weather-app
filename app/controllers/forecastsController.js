@@ -23,9 +23,25 @@ App.controller('forecastsController', function ($scope, Data) {
 
 	getLast30Dates();
 
+	$scope.getLast30DaysForecasts = function () {
+		$scope.forecasts.last30Days = [];
+		for (var i = 0; i <= 29; i++) {
+			Data.last30DaysForecasts('43.8563', '18.4131', last30Dates[i])
+				.then(function (data) {
+					$scope.forecasts.last30Days.push(data.currently);
+					console.log($scope.forecasts.last30Days);
+				}, function (error) {
+					console.log(error)
+				});
+		}
+	};
+
+	$scope.getLast30DaysForecasts();
+
 	$scope.updateLocation = function (cityName) {
 		Data.getGeoInfo(cityName)
 			.then(function (data) {
+
 				$scope.location.lat = data.results[0].geometry.location.lat;
 				$scope.location.lng = data.results[0].geometry.location.lng;
 				$scope.location.city = data.results[0].address_components[0].long_name;
