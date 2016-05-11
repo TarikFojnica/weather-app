@@ -3,6 +3,7 @@
 @import "mixins";
 @import "select";
 @import "select2";
+@import "weather-font";
 
 $color-primary: yellow;
 $color-secondary: #D5473E;
@@ -46,6 +47,49 @@ header {
 					}
 				}
 			}
+		}
+	}
+}
+
+.btn {
+	@include border-radius(2px)
+}
+
+.form-container {
+	margin: 30px 0;
+	.form-group {
+		input {
+			@include border-radius(2px);
+			height: auto;
+		}
+
+		button {
+			&.btn {
+				display: block;
+				width: 100%;
+				background: none;
+				border: 1px solid rgba(255, 255, 255, .5);
+				color: #fff;
+
+				&:hover {
+					background-color: #fff;
+					color: $green1;
+				}
+			}
+		}
+	}
+}
+
+.place-info {
+	margin: 15px 0;
+	h2 {
+		text-align: center;
+		color: #fff;
+		font-weight: 300;
+		margin: 0;
+
+		span {
+			font-weight: 400;
 		}
 	}
 }

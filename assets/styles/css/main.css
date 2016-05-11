@@ -1449,7 +1449,7 @@ hr {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
   color: inherit;
 }
@@ -8019,6 +8019,13 @@ disabled look for disabled choices in the results dropdown
   }
 }
 
+@font-face {
+  font-family: "iconvault";
+  src: url("weather-font/iconvault_forecastfont.eot");
+  src: url("weather-font/iconvault_forecastfont.eot?#iefix") format("embedded-opentype"), url("weather-font/iconvault_forecastfont.woff") format("woff"), url("weather-font/iconvault_forecastfont.ttf") format("truetype"), url("weather-font/iconvault_forecastfont.svg#iconvault") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   min-height: 100vh;
   background-image: -webkit-linear-gradient(top, #396B76 0%, #99A18A 100%);
@@ -8055,6 +8062,53 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: yellow;
+}
+
+.btn {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+}
+
+.form-container {
+  margin: 30px 0;
+}
+
+.form-container .form-group input {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  height: auto;
+}
+
+.form-container .form-group button.btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.form-container .form-group button.btn:hover {
+  background-color: #fff;
+  color: #396B76;
+}
+
+.place-info {
+  margin: 15px 0;
+}
+
+.place-info h2 {
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+  margin: 0;
+}
+
+.place-info h2 span {
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=main.css.map */

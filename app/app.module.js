@@ -1,3 +1,4 @@
 var App = angular.module('App', [
-	'ngRoute'
+	'ngRoute',
+	'ui.select'
 ]);
