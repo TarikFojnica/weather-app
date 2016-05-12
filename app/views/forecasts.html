@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="current-place">
-			<h2>{{location.city}}, 14. 02. 2015</h2>
+			<h2>{{location.city}}, <span>{{location.date}}</span></h2>
 		</div>
 	</div>
 </div>
@@ -72,6 +72,7 @@
 					<sup>o</sup>C
 					{{convertFahrenheit(forecast.temperature)}}
 				</td>
+
 				<td>{{forecast.summary}}</td>
 			</tr>
 			</tbody>

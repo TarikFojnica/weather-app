@@ -1,0 +1,37 @@
+/* when hiding the picture */
+.ng-hide-add {
+	animation: 0.5s fadeOut
+}
+
+/* when showing the picture */
+.ng-hide-remove {
+	animation: 0.5s fadeIn
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.fadeIn {
+	animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+.fadeOut {
+	animation-name: fadeOut;
+}

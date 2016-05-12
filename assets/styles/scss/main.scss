@@ -1,8 +1,8 @@
 
 @import "bootstrap.min";
 @import "mixins";
-@import "select";
-@import "select2";
+@import "loading-bar.min";
+@import "ng-animate";
 
 $color-primary: #fff;
 $color-secondary: #D5473E;
@@ -12,7 +12,8 @@ $line: rgba(255, 255, 255, .1);
 
 body {
 	min-height: 100vh;
-	@include gradient-vertical($green1, $green2);
+	@include gradient-horizontal($green1, $green2);
+	overflow-y: scroll;
 }
 
 p {
@@ -207,6 +208,7 @@ header {
 			td {
 				border-top: 1px solid rgba(255, 255, 255, .1);
 				color: #fff;
+				width: 25%;
 
 				img {
 					width: 32px;

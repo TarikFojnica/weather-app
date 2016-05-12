@@ -4,6 +4,7 @@ App.controller('forecastsController', function ($scope, Data) {
 	$scope.forecasts = {};
 	$scope.location = {};
 	$scope.location.city = 'Sarajevo';
+	$scope.location.date = moment().format('Do MMMM YYYY');
 	var last30Dates = [];
 	$scope.switch = 'today';
 
@@ -18,7 +19,6 @@ App.controller('forecastsController', function ($scope, Data) {
 
 			if (i >= 29) {
 				last30Dates = _last30Dates;
-				console.log(last30Dates)
 			}
 		}
 	}
@@ -33,7 +33,6 @@ App.controller('forecastsController', function ($scope, Data) {
 			Data.last30DaysForecasts('43.8563', '18.4131', last30Dates[i])
 				.then(function (data) {
 					$scope.forecasts.last30Days.push(data.currently);
-					console.log($scope.forecasts.last30Days);
 				}, function (error) {
 					console.log(error)
 				});
@@ -43,7 +42,7 @@ App.controller('forecastsController', function ($scope, Data) {
 	// Update location by submitting the input form. Once the form is submitted
 	// call the Google Maps Geocoding API and pass the entered value. It will return
 	// coordinates of the entered place which will be used for the Weather API.
-	// Reset the input field once the form is submitted
+	// Reset the input field once we receive the expected data
 	$scope.updateLocation = function (cityName) {
 		Data.getGeoInfo(cityName)
 			.then(function (data) {
