@@ -1,13 +1,15 @@
 App.controller('forecastsController', function ($scope, Data) {
 
-	//initializing the forecasts object
+	//initializing the forecasts object and some defaults we may need in the app
 	$scope.forecasts = {};
 	$scope.location = {};
 	$scope.location.city = 'Sarajevo';
 	var last30Dates = [];
-	//default forecast selection
 	$scope.switch = 'today';
 
+	// Get the dates of the last 30 days by taking the advantage of Moment.js library.
+	// After the date is received convert it into a Unix format and store in the array
+	// so we have it ready in the memory.
 	function getLast30Dates() {
 		var _last30Dates = [];
 		for (var i = 0; i <= 29; i++) {
@@ -20,9 +22,11 @@ App.controller('forecastsController', function ($scope, Data) {
 			}
 		}
 	}
-
 	getLast30Dates();
 
+
+	// Get the weather forecasts of the last 30 days and store it in the array of objects.
+	// Each day is an object in array.
 	$scope.getLast30DaysForecasts = function () {
 		$scope.forecasts.last30Days = [];
 		for (var i = 0; i <= 29; i++) {
@@ -36,8 +40,10 @@ App.controller('forecastsController', function ($scope, Data) {
 		}
 	};
 
-	$scope.getLast30DaysForecasts();
-
+	// Update location by submitting the input form. Once the form is submitted
+	// call the Google Maps Geocoding API and pass the entered value. It will return
+	// coordinates of the entered place which will be used for the Weather API.
+	// Reset the input field once the form is submitted
 	$scope.updateLocation = function (cityName) {
 		Data.getGeoInfo(cityName)
 			.then(function (data) {
@@ -53,6 +59,7 @@ App.controller('forecastsController', function ($scope, Data) {
 				console.log('Todays forecasts error' + error)
 			});
 	};
+
 	//getting the today's forecasts
 	$scope.getTodayForecasts = function (lat, lng) {
 		//call the service
@@ -79,7 +86,8 @@ App.controller('forecastsController', function ($scope, Data) {
 
 		return {
 			onlyHours: hour,
-			onlyDate: date
+			onlyDay: date,
+			date: date + ' ' + month + ' ' + year
 		};
 	};
 	//convert fahrenheit to celsius
@@ -87,7 +95,7 @@ App.controller('forecastsController', function ($scope, Data) {
 		return ((value - 32) * (5 / 9)).toFixed(1);
 	};
 
-	//calling default data
+	//calling the initial default data on the app load
 	$scope.getTodayForecasts('43.8563', '18.4131');
 
 });

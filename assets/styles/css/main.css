@@ -8203,4 +8203,17 @@ header nav ul li a:hover {
   padding: 2px 7px;
 }
 
+.last-month-weather table tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.last-month-weather table tr td {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.last-month-weather table tr td img {
+  width: 32px;
+}
+
 /*# sourceMappingURL=main.css.map */

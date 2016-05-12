@@ -4,8 +4,7 @@
 @import "select";
 @import "select2";
 
-
-$color-primary: yellow;
+$color-primary: #fff;
 $color-secondary: #D5473E;
 $green1: #396B76;
 $green2: #99A18A;
@@ -192,6 +191,25 @@ header {
 					background-color: rgba(255, 255, 255, .1);
 					@include border-radius(2px);
 					padding: 2px 7px;
+				}
+			}
+		}
+	}
+}
+
+.last-month-weather {
+	table {
+		tr {
+			&:hover {
+				background-color: rgba(255, 255, 255, .1);
+			}
+
+			td {
+				border-top: 1px solid rgba(255, 255, 255, .1);
+				color: #fff;
+
+				img {
+					width: 32px;
 				}
 			}
 		}

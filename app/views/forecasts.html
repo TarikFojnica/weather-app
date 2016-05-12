@@ -62,23 +62,17 @@
 		</div>
 	</div>
 
-	<div class="60-days-weather" ng-show="switch  == '30days'">
-
-		<table class="table table-striped table-hover ">
-			<thead>
-			<tr>
-				<th>#</th>
-				<th>Column heading</th>
-				<th>Column heading</th>
-				<th>Column heading</th>
-			</tr>
-			</thead>
+	<div class="last-month-weather" ng-show="switch  == '30days'">
+		<table class="table table-hover ">
 			<tbody>
-			<tr ng-repeat="forecast in forecasts.last30Days">
-				<td>{{convertUnixToDate(forecast.time).onlyDate}}</td>
-				<td>Column content</td>
-				<td>Column content</td>
-				<td>Column content</td>
+			<tr ng-repeat="forecast in forecasts.last30Days | orderBy : 'time'">
+				<td>{{convertUnixToDate(forecast.time).date}}</td>
+				<td><img ng-src="assets/img/{{forecast.icon}}.png" alt=""></td>
+				<td>
+					<sup>o</sup>C
+					{{convertFahrenheit(forecast.temperature)}}
+				</td>
+				<td>{{forecast.summary}}</td>
 			</tr>
 			</tbody>
 		</table>
