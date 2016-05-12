@@ -7237,7 +7237,6 @@ button.close {
     transform: rotate(360deg);
   }
 }
-
 @-moz-keyframes loading-bar-spinner {
   0% {
     -moz-transform: rotate(0deg);
@@ -7248,7 +7247,6 @@ button.close {
     transform: rotate(360deg);
   }
 }
-
 @-o-keyframes loading-bar-spinner {
   0% {
     -o-transform: rotate(0deg);
@@ -7259,7 +7257,6 @@ button.close {
     transform: rotate(360deg);
   }
 }
-
 @-ms-keyframes loading-bar-spinner {
   0% {
     -ms-transform: rotate(0deg);
@@ -7270,7 +7267,6 @@ button.close {
     transform: rotate(360deg);
   }
 }
-
 @keyframes loading-bar-spinner {
   0% {
     transform: rotate(0deg);
@@ -7279,7 +7275,6 @@ button.close {
     transform: rotate(360deg);
   }
 }
-
 /* when hiding the picture */
 .ng-hide-add {
   animation: 0.5s fadeOut;
@@ -7298,7 +7293,6 @@ button.close {
     opacity: 1;
   }
 }
-
 .fadeIn {
   animation-name: fadeIn;
 }
@@ -7311,7 +7305,6 @@ button.close {
     opacity: 0;
   }
 }
-
 .fadeOut {
   animation-name: fadeOut;
 }
@@ -7340,6 +7333,12 @@ header .logo h1 {
   font-weight: 300;
 }
 
+@media (max-width: 991px) {
+  header .logo h1 {
+    text-align: center;
+  }
+}
+
 header .logo h1 img {
   width: 1.3em;
   margin-top: -3px;
@@ -7366,6 +7365,11 @@ header nav ul li a:hover {
   /* stops bg color from leaking outside the border: */
 }
 
+@media (max-width: 991px) {
+  .form-container {
+    margin-bottom: 10px;
+  }
+}
 .form-container .form-group input {
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -7379,6 +7383,12 @@ header nav ul li a:hover {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .form-container .form-group button.btn {
+    margin-top: 10px;
+  }
 }
 
 .form-container .form-group button.btn:hover {

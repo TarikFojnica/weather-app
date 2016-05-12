@@ -3,7 +3,7 @@ App.factory('Data', function ($http, $q) {
 	return {
 		todayForecasts: function (latitude, longitude) {
 
-			return $http.get('https://api.forecast.io/forecast/d8ab77870812de67277ae47d3e9bf83e/' + latitude + ',' + longitude)
+			return $http.get('https://weather-app-server.herokuapp.com/forecasts/?lat=' + latitude + '&lng=' + longitude)
 				.then(function (response) {
 					if (typeof response.data === 'object') {
 						return response.data;
@@ -18,8 +18,8 @@ App.factory('Data', function ($http, $q) {
 				});
 		},
 
-		last30DaysForecasts: function (latitude, longitude, date) {
-			return $http.get('https://api.forecast.io/forecast/d8ab77870812de67277ae47d3e9bf83e/' + latitude + ',' + longitude + ',' + date)
+		last30DaysForecasts: function (latitude, longitude) {
+			return $http.get('https://weather-app-server.herokuapp.com/forecasts/past-days/?lat=' + latitude + '&lng=' + longitude)
 				.then(function (response) {
 					if (typeof response.data === 'object') {
 						return response.data;

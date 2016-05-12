@@ -4,6 +4,9 @@ App.controller('forecastsController', function ($scope, Data) {
 	$scope.forecasts = {};
 	$scope.location = {};
 	$scope.location.city = 'Sarajevo';
+	$scope.location.lat = '43.8563';
+	$scope.location.lng = '18.4131';
+
 	$scope.location.date = moment().format('Do MMMM YYYY');
 	var last30Dates = [];
 	$scope.switch = 'today';
@@ -11,7 +14,7 @@ App.controller('forecastsController', function ($scope, Data) {
 	// Get the dates of the last 30 days by taking the advantage of Moment.js library.
 	// After the date is received convert it into a Unix format and store in the array
 	// so we have it ready in the memory.
-	function getLast30Dates() {
+	function getLast30Dates(cb) {
 		var _last30Dates = [];
 		for (var i = 0; i <= 29; i++) {
 			//taking unix time of each day in the last 30 days and storing it in the 'last30Dates' array
@@ -24,19 +27,15 @@ App.controller('forecastsController', function ($scope, Data) {
 	}
 	getLast30Dates();
 
-
 	// Get the weather forecasts of the last 30 days and store it in the array of objects.
 	// Each day is an object in array.
-	$scope.getLast30DaysForecasts = function () {
-		$scope.forecasts.last30Days = [];
-		for (var i = 0; i <= 29; i++) {
-			Data.last30DaysForecasts('43.8563', '18.4131', last30Dates[i])
-				.then(function (data) {
-					$scope.forecasts.last30Days.push(data.currently);
-				}, function (error) {
-					console.log(error)
-				});
-		}
+	$scope.getLast30DaysForecasts = function (lat, lng) {
+		Data.last30DaysForecasts(lat, lng)
+			.then(function (data) {
+				$scope.forecasts.last30Days = data;
+			}, function (error) {
+				console.log(error)
+			});
 	};
 
 	// Update location by submitting the input form. Once the form is submitted
@@ -52,6 +51,8 @@ App.controller('forecastsController', function ($scope, Data) {
 				$scope.location.city = data.results[0].address_components[0].long_name;
 
 				$scope.getTodayForecasts($scope.location.lat, $scope.location.lng);
+				$scope.getLast30DaysForecasts($scope.location.lat, $scope.location.lng);
+
 				$scope.location.value = '';
 
 			}, function (error) {
@@ -95,6 +96,6 @@ App.controller('forecastsController', function ($scope, Data) {
 	};
 
 	//calling the initial default data on the app load
-	$scope.getTodayForecasts('43.8563', '18.4131');
+	$scope.getTodayForecasts($scope.location.lat, $scope.location.lng);
 
 });
