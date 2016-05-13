@@ -1,9 +1,10 @@
 App.factory('Data', function ($http, $q) {
+	var apiLocation = 'http://weatherappserver-63259.onmodulus.net';
 
 	return {
 		todayForecasts: function (latitude, longitude) {
 
-			return $http.get('https://weather-app-server.herokuapp.com/forecasts/?lat=' + latitude + '&lng=' + longitude)
+			return $http.get(apiLocation + '/forecasts/?lat=' + latitude + '&lng=' + longitude)
 				.then(function (response) {
 					if (typeof response.data === 'object') {
 						return response.data;
@@ -19,7 +20,7 @@ App.factory('Data', function ($http, $q) {
 		},
 
 		last30DaysForecasts: function (latitude, longitude) {
-			return $http.get('https://weather-app-server.herokuapp.com/forecasts/past-days/?lat=' + latitude + '&lng=' + longitude)
+			return $http.get(apiLocation + '/forecasts/past-days/?lat=' + latitude + '&lng=' + longitude)
 				.then(function (response) {
 					if (typeof response.data === 'object') {
 						return response.data;
