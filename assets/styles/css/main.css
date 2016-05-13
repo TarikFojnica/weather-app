@@ -7326,12 +7326,11 @@ p {
 header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-header .logo h1 {
-  color: #fff;
-  font-size: 1.8em;
-  font-weight: 300;
-}
+  header .logo h1 {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 300;
+  }
 
 @media (max-width: 991px) {
   header .logo h1 {
@@ -7523,6 +7522,24 @@ header nav ul li a:hover {
 
 .last-month-weather table tr td img {
   width: 32px;
+}
+
+footer {
+  text-align: center;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li a {
+  color: #fff;
+}
+
+footer ul li a:hover {
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */
