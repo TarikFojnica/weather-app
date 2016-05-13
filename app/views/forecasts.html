@@ -19,7 +19,7 @@
 					{{forecasts.currently.summary}}
 					<span ng-show="forecasts.currently.temperature != NaN">
 					<sup>o</sup>C
-					{{convertFahrenheit(forecasts.currently.temperature)}}
+					{{convert.fahrenheitToCelsius(forecasts.currently.temperature)}}
 				</span>
 				</p>
 			</div>
@@ -68,12 +68,12 @@
 			<tr ng-repeat="forecast in forecasts.last30Days | orderBy: 'currently.time'">
 				<td>{{convert.unixToDate(forecast.currently.time).date}}</td>
 				<td><img ng-src="assets/img/{{forecast.currently.icon}}.png" alt=""></td>
+				<td>{{forecast.currently.summary}}</td>
 				<td>
 					<sup>o</sup>C
 					{{convert.fahrenheitToCelsius(forecast.currently.temperature)}}
 				</td>
 
-				<td>{{forecast.currently.summary}}</td>
 			</tr>
 			</tbody>
 		</table>
