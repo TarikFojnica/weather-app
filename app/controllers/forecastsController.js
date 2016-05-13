@@ -14,21 +14,20 @@ App.controller('forecastsController', function ($scope, Data) {
 	// Get the dates of the last 30 days by taking the advantage of Moment.js library.
 	// After the date is received convert it into a Unix format and store in the array
 	// so we have it ready in the memory.
-	function getLast30Dates(cb) {
-		var _last30Dates = [];
+
+	// NOTE: This functionality is now moved on the server and here is for the reference only , check:
+	// https://github.com/TarikFojnica/weather-app-server/blob/master/routes/forecasts.js
+
+	function getLast30Dates() {
 		for (var i = 0; i <= 29; i++) {
 			//taking unix time of each day in the last 30 days and storing it in the 'last30Dates' array
-			_last30Dates.push(Math.floor((moment().subtract(i, 'days')) / 1000));
-
-			if (i >= 29) {
-				last30Dates = _last30Dates;
-			}
+			last30Dates.push(Math.floor((moment().subtract(i, 'days')) / 1000));
 		}
 	}
-	getLast30Dates();
 
-	// Get the weather forecasts of the last 30 days and store it in the array of objects.
-	// Each day is an object in array.
+	// Get the weather forecasts of the last 30 days. More logic on server:
+	// https://github.com/TarikFojnica/weather-app-server/blob/master/routes/forecasts.js
+
 	$scope.getLast30DaysForecasts = function (lat, lng) {
 		Data.last30DaysForecasts(lat, lng)
 			.then(function (data) {
