@@ -1,4 +1,4 @@
-App.controller('forecastsController', function ($scope, Data) {
+App.controller('forecastsController', function ($scope, Data, ConvertData) {
 
 	//initializing the forecasts object and some defaults we may need in the app
 	$scope.forecasts = {};
@@ -72,29 +72,11 @@ App.controller('forecastsController', function ($scope, Data) {
 			});
 	};
 
-	//function for converting unix time
-	$scope.convertUnixToDate = function (UNIX_time) {
-		var a = new Date(UNIX_time * 1000);
-		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-		var year = a.getFullYear();
-		var month = months[a.getMonth()];
-		var date = a.getDate();
-		var hour = a.getHours();
-		var min = a.getMinutes();
-		var sec = a.getSeconds();
+	//call the functions from the ConvertData helper
+	$scope.convert = ConvertData;
 
-		return {
-			onlyHours: hour,
-			onlyDay: date,
-			date: date + ' ' + month + ' ' + year
-		};
-	};
-	//convert fahrenheit to celsius
-	$scope.convertFahrenheit = function (value) {
-		return ((value - 32) * (5 / 9)).toFixed(1);
-	};
-
-	//calling the initial default data on the app load
+	//call the initial default data on the app load
 	$scope.getTodayForecasts($scope.location.lat, $scope.location.lng);
+
 
 });
