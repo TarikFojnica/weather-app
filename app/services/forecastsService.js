@@ -2,25 +2,9 @@ App.factory('Data', function ($http, $q) {
 	var apiLocation = 'http://weatherappserver-63259.onmodulus.net';
 
 	return {
-		todayForecasts: function (latitude, longitude) {
+		getForecasts: function (url, lat, lng) {
 
-			return $http.get(apiLocation + '/forecasts/?lat=' + latitude + '&lng=' + longitude)
-				.then(function (response) {
-					if (typeof response.data === 'object') {
-						return response.data;
-					} else {
-						// invalid response
-						return $q.reject(response.data);
-					}
-
-				}, function (response) {
-					// something went wrong
-					return $q.reject(response.data);
-				});
-		},
-
-		last30DaysForecasts: function (latitude, longitude) {
-			return $http.get(apiLocation + '/forecasts/past-days/?lat=' + latitude + '&lng=' + longitude)
+			return $http.get(url + '/?lat=' + lat + '&lng=' + lng)
 				.then(function (response) {
 					if (typeof response.data === 'object') {
 						return response.data;

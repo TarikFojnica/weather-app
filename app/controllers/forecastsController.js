@@ -9,14 +9,8 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 	$scope.location.date = moment().format('Do MMMM YYYY');
 	$scope.switch = 'today';
 
-	$scope.getLast30DaysForecasts = function (lat, lng) {
-		Data.last30DaysForecasts(lat, lng)
-			.then(function (data) {
-				$scope.forecasts.last30Days = data;
-			}, function (error) {
-				console.log(error)
-			});
-	};
+	//store the functions from the ConvertData helper into $scope.convert object
+	$scope.convert = ConvertData;
 
 	// Update location by submitting the input form. Once the form is submitted
 	// call the Google Maps Geocoding API and pass the entered value. It will return
@@ -40,23 +34,29 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 			});
 	};
 
-	//getting the today's forecasts
+	//get the today's forecasts
 	$scope.getTodayForecasts = function (lat, lng) {
 		//call the service
-		Data.todayForecasts(lat, lng)
+		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts', lat, lng)
 			.then(function (data) {
 				$scope.forecasts.currently = data.currently;
 				$scope.forecasts.hourly = data.hourly.data;
 
 			}, function (error) {
-				console.log('Todays forecasts error' + error)
+				console.log('Todays forecasts error' + error);
 			});
 	};
 
-	//call the functions from the ConvertData helper
-	$scope.convert = ConvertData;
+	//get the last 30 days forecasts
+	$scope.getLast30DaysForecasts = function (lat, lng) {
+		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts/past-days', lat, lng)
+			.then(function (data) {
+				$scope.forecasts.last30Days = data;
+			}, function (error) {
+				console.log(error)
+			});
+	};
 
 	//call the initial default data on the app load
 	$scope.getTodayForecasts($scope.location.lat, $scope.location.lng);
-
 });
