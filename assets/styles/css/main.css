@@ -7344,6 +7344,22 @@ header .logo h1 img {
   margin-right: 5px;
 }
 
+header .logo h1 span {
+  font-size: .4em;
+  font-weight: 400;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header .logo h1 span a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header .logo h1 span a:hover {
+  color: #fff;
+}
+
 header nav ul {
   list-style-type: none;
   margin: 25px 0 0 0;

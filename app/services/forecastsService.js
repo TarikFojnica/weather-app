@@ -1,5 +1,4 @@
 App.factory('Data', function ($http, $q) {
-	var apiLocation = 'http://weatherappserver-63259.onmodulus.net';
 
 	return {
 		getForecasts: function (url, lat, lng) {

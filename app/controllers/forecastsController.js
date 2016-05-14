@@ -3,7 +3,7 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 	//initializing the forecasts object and some defaults we may need in the app
 	$scope.forecasts = {};
 	$scope.location = {};
-	$scope.location.city = 'Sarajevo';
+	$scope.location.city = 'Sarajevo, Bosnia and Herzegovina';
 	$scope.location.lat = '43.8563';
 	$scope.location.lng = '18.4131';
 	$scope.location.date = moment().format('Do MMMM YYYY');
@@ -22,7 +22,7 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 
 				$scope.location.lat = data.results[0].geometry.location.lat;
 				$scope.location.lng = data.results[0].geometry.location.lng;
-				$scope.location.city = data.results[0].address_components[0].long_name;
+				$scope.location.city = data.results[0].formatted_address;
 
 				$scope.getTodayForecasts($scope.location.lat, $scope.location.lng);
 				$scope.getLast30DaysForecasts($scope.location.lat, $scope.location.lng);
