@@ -7310,7 +7310,6 @@ button.close {
 }
 
 body {
-  min-height: 100vh;
   background-image: -webkit-linear-gradient(left, #396B76 0%, #99A18A 100%);
   background-image: -o-linear-gradient(left, #396B76 0%, #99A18A 100%);
   background-image: linear-gradient(to right, #396B76 0%, #99A18A 100%);
@@ -7321,6 +7320,11 @@ body {
 
 p {
   margin-bottom: 0;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.05);
+  min-height: 100vh;
 }
 
 header {
@@ -7391,6 +7395,7 @@ header nav ul li a:hover {
   background-clip: padding-box;
   /* stops bg color from leaking outside the border: */
   height: auto;
+  border: none;
 }
 .form-container .form-group button.btn {
   display: block;
