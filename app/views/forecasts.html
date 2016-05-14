@@ -17,7 +17,7 @@
 			<div class="description">
 				<p>
 					{{forecasts.currently.summary}}
-					<span ng-show="forecasts.currently.temperature != NaN">
+					<span ng-show="forecasts.currently.temperature != NaN" class="temperature">
 						<sup>o</sup>C
 						{{convert.fahrenheitToCelsius(forecasts.currently.temperature)}}
 					</span>
