@@ -1,8 +1,10 @@
 App.controller('forecastsController', function ($scope, Data, ConvertData) {
 
-	//initializing the forecasts object and some defaults we may need in the app
+	//initializing the forecasts and location objects
 	$scope.forecasts = {};
 	$scope.location = {};
+
+	//set defaults
 	$scope.location.city = 'Sarajevo, Bosnia and Herzegovina';
 	$scope.location.lat = '43.8563';
 	$scope.location.lng = '18.4131';
