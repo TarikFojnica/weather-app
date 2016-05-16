@@ -32,11 +32,11 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 				$scope.location.value = '';
 
 			}, function (error) {
-				console.log('Todays forecasts error' + error)
+				console.log('Geocoding API Error' + error)
 			});
 	};
 
-	//get the today's forecasts
+	// Get the today's forecasts
 	$scope.getTodayForecasts = function (lat, lng) {
 		//call the service
 		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts', lat, lng)
@@ -45,11 +45,12 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 				$scope.forecasts.hourly = data.hourly.data;
 
 			}, function (error) {
-				console.log('Todays forecasts error' + error);
+				console.log('Today forecasts error' + error);
 			});
 	};
 
-	//get the last 30 days forecasts
+	// Get the last 30 days forecasts, more logic on server:
+	// https://github.com/TarikFojnica/weather-app-server/blob/master/routes/forecasts.js
 	$scope.getLast30DaysForecasts = function (lat, lng) {
 		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts/past-days', lat, lng)
 			.then(function (data) {

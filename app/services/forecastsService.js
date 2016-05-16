@@ -8,12 +8,10 @@ App.factory('Data', function ($http, $q) {
 					if (typeof response.data === 'object') {
 						return response.data;
 					} else {
-						// invalid response
 						return $q.reject(response.data);
 					}
 
 				}, function (response) {
-					// something went wrong
 					return $q.reject(response.data);
 				});
 		},
@@ -24,12 +22,10 @@ App.factory('Data', function ($http, $q) {
 					if (typeof response.data === 'object') {
 						return response.data;
 					} else {
-						// invalid response
 						return $q.reject(response.data);
 					}
 
 				}, function (response) {
-					// something went wrong
 					return $q.reject(response.data);
 				});
 		}
