@@ -39,7 +39,7 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 	// Get the today's forecasts
 	$scope.getTodayForecasts = function (lat, lng) {
 		//call the service
-		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts', lat, lng)
+		Data.getForecasts('https://weather-app-server.herokuapp.com/forecasts', lat, lng)
 			.then(function (data) {
 				$scope.forecasts.currently = data.currently;
 				$scope.forecasts.hourly = data.hourly.data;
@@ -52,7 +52,7 @@ App.controller('forecastsController', function ($scope, Data, ConvertData) {
 	// Get the last 30 days forecasts, more logic on server:
 	// https://github.com/TarikFojnica/weather-app-server/blob/master/routes/forecasts.js
 	$scope.getLast30DaysForecasts = function (lat, lng) {
-		Data.getForecasts('http://weatherappserver-63259.onmodulus.net/forecasts/past-days', lat, lng)
+		Data.getForecasts('https://weather-app-server.herokuapp.com/forecasts/past-days', lat, lng)
 			.then(function (data) {
 				$scope.forecasts.last30Days = data;
 			}, function (error) {
